@@ -7,6 +7,7 @@ import {
   SignUpCommand,
   ConfirmSignUpCommand,
   InitiateAuthCommandInput,
+  ConfirmSignUpCommandInput,
 } from '@aws-sdk/client-cognito-identity-provider';
 import config from './config.json';
 
@@ -68,7 +69,7 @@ export const signUp = async (email: string, password: string) => {
 };
 
 export const confirmSignUp = async (username: string, code: string) => {
-  const params = {
+  const params: ConfirmSignUpCommandInput = {
     ClientId: config.clientId,
     Username: username,
     ConfirmationCode: code,
